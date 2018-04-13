@@ -4,6 +4,12 @@
 *.so
 *.dylib
 
+# Export directory for building binaries
+bin/
+
+# Export directory for compiling configs
+out/
+
 # Test binary, build with `go test -c`
 *.test
 
