@@ -1,0 +1,3 @@
+[submodule "m3db"]
+	path = m3db
+	url = https://github.com/m3db/m3db
