@@ -1,0 +1,18 @@
+server:
+  listenAddress: 0.0.0.0:9470
+  debugAddress: 0.0.0.0:19470
+
+metrics:
+  sampleRate: 0.02
+  m3:
+    hostPort: 127.0.0.1:9052
+    service: m3em_agent
+    includeHost: true
+    env: production
+
+agent:
+  workingDir: /var/m3em-agent
+  startupCmds: []
+  releaseCmds: []
+  testEnvVars:
+    UBER_DATACENTER: sjc1

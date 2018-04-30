@@ -1,0 +1,106 @@
+
+dtest:
+  debugPort: 19484
+  bootstrapTimeout: 30m
+  bootstrapReportInterval: 1m
+  nodePort: 6155
+  serviceID: statsdex_m3dbnode
+  dataDir: m3db-data/data
+  seeds:
+    - namespace: metrics
+      localShardNum: 777
+      retention: 12h
+      blockSize: 2h
+  instances:
+    - id: m3-dtest-integration04-sjc1
+      rack: rack-0
+      zone: sjc1
+      weight: 1
+      hostname: m3-dtest-integration04-sjc1
+    - id: m3-dtest-integration05-sjc1
+      rack: rack-0
+      zone: sjc1
+      weight: 1
+      hostname: m3-dtest-integration05-sjc1
+    - id: m3-dtest-integration06-sjc1
+      rack: rack-0
+      zone: sjc1
+      weight: 1
+      hostname: m3-dtest-integration06-sjc1
+    - id: m3-dtest-integration07-sjc1
+      rack: rack-0
+      zone: sjc1
+      weight: 1
+      hostname: m3-dtest-integration07-sjc1
+    - id: m3-dtest-integration08-sjc1
+      rack: rack-0
+      zone: sjc1
+      weight: 1
+      hostname: m3-dtest-integration08-sjc1
+    - id: m3-dtest-integration09-sjc1
+      rack: rack-0
+      zone: sjc1
+      weight: 1
+      hostname: m3-dtest-integration09-sjc1
+    - id: m3-dtest-integration10-sjc1
+      rack: rack-0
+      zone: sjc1
+      weight: 1
+      hostname: m3-dtest-integration10-sjc1
+    - id: m3-dtest-integration11-sjc1
+      rack: rack-0
+      zone: sjc1
+      weight: 1
+      hostname: m3-dtest-integration11-sjc1
+    - id: m3-dtest-integration12-sjc1
+      rack: rack-0
+      zone: sjc1
+      weight: 1
+      hostname: m3-dtest-integration12-sjc1
+    - id: m3-dtest-integration13-sjc1
+      rack: rack-0
+      zone: sjc1
+      weight: 1
+      hostname: m3-dtest-integration13-sjc1
+    - id: m3-dtest-integration14-sjc1
+      rack: rack-0
+      zone: sjc1
+      weight: 1
+      hostname: m3-dtest-integration14-sjc1
+    - id: m3-dtest-integration15-sjc1
+      rack: rack-0
+      zone: sjc1
+      weight: 1
+      hostname: m3-dtest-integration15-sjc1
+
+m3em:
+  agentPort: 9470
+  agentTLS:
+    serverName: m3em_server.uberinternal.com
+    caCrt: /langley/current/statsdex_m3em_agent/statsdex/m3em/root_ca/crt/M3EM_Root_CA.crt
+    clientCrt: /langley/current/statsdex_m3em_agent/statsdex/m3em/client/crt/m3em_client.uberinternal.com.crt
+    clientKey: /langley/current/statsdex_m3em_agent/statsdex/m3em/client/key/m3em_client.uberinternal.com.key
+  heartbeatPort: 9484
+  node:
+    heartbeat:
+      timeout: 4m
+      interval: 3s
+  cluster:
+    replication: 3
+    numShards: 1024
+    nodeConcurrency: 8
+    nodeOperationTimeout: 5m
+
+kv:
+    env: dtest_integration
+    zone: sjc1
+    service: statsdex_dtest
+    cacheDir: /var/lib/m3kv
+    etcdClusters:
+        - zone: sjc1
+          endpoints:
+              - m3-kv01-sjc1:2379
+              - m3-kv02-sjc1:2379
+              - m3-kv03-sjc1:2379
+              - m3-kv04-sjc1:2379
+              - m3-kv05-sjc1:2379
